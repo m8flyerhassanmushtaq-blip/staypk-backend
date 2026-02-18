@@ -7,7 +7,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = process.env.PORT || 5000;
+// 🔥 IMPORTANT: use Render's port
+const PORT = process.env.PORT;
+
+// 🔥 Use environment variable (NOT hardcoded)
 const MONGO_URI = process.env.MONGO_URI;
 
 mongoose.connect(MONGO_URI)
