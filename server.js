@@ -1,7 +1,23 @@
+const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
-const MONGO_URI = "mongodb+srv://m8flyerhassanmushtaq_db_user:ZxH32eRgMsSL8Tex@cluster0.n9mdmc4.mongodb.net/staypk?retryWrites=true&w=majority";
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+const PORT = process.env.PORT || 5000;
+const MONGO_URI = process.env.MONGO_URI;
 
 mongoose.connect(MONGO_URI)
   .then(() => console.log("MongoDB Connected 🚀"))
   .catch(err => console.log("Connection Error:", err));
+
+app.get("/", (req, res) => {
+  res.send("StayPK Backend Running 🚀");
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
