@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 // 🔥 IMPORTANT: use Render's port
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 10000;
 
 // 🔥 Use environment variable (NOT hardcoded)
 const MONGO_URI = process.env.MONGO_URI;
